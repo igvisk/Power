@@ -28,9 +28,9 @@ def main(page: ft.Page):
     )
 
     # --- INPUTS ---
-    current = ft.TextField(label="I (A)", value="16", expand=True, keyboard_type=ft.KeyboardType.NUMBER_WITH_OPTIONS(decimal=True),  **input_style)
-    voltage = ft.TextField(label="U (V)", value="230", expand=True, keyboard_type=ft.KeyboardType.NUMBER_WITH_OPTIONS(decimal=True), **input_style)
-    pf = ft.TextField(label="cos φ", value="0.98", keyboard_type=ft.KeyboardType.NUMBER_WITH_OPTIONS(decimal=True), expand=True, **input_style)
+    current = ft.TextField(label="I (A)", value="16", expand=True, keyboard_type="number",  **input_style)
+    voltage = ft.TextField(label="U (V)", value="230", expand=True, keyboard_type="number", **input_style)
+    pf = ft.TextField(label="cos φ", value="0.98", expand=True, keyboard_type="number", **input_style)
 
     inputs_row = ft.Row(
         width=300,
