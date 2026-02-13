@@ -14,6 +14,8 @@ def main(page: ft.Page):
     
     page.bgcolor = "#fffafa"
 
+    # page.window_soft_input_mode = ft.SoftInputMode.PAN      #try - footer overlay test neskor ak nezabere riesenie v page botoom
+
     # # --- APP BAR ---     musi byt inak je uplne hore nalepena a zacina apka od hrany     ---vyriesene cez safeArea v page.add
     # page.appbar = ft.AppBar(
     #     title=ft.Text(" "),
@@ -157,15 +159,15 @@ def main(page: ft.Page):
         on_click=on_calculate,
     )
 
-    footer = ft.Container(
-        padding=10,
-        content=ft.Text(
-            f"Power Calculator {VERSION}  |  ©2026 Igor Vitovský  |  github.com/igvisk",
-            size=10,
-            opacity=0.6,
-            text_align=ft.TextAlign.CENTER,
-        ),
-    )
+    # # footer = ft.Container(
+    # #     padding=10,
+    # #     content=ft.Text(
+    # #         f"Power Calculator {VERSION}  |  ©2026 Igor Vitovský  |  github.com/igvisk",
+    # #         size=10,
+    # #         opacity=0.6,
+    # #         text_align=ft.TextAlign.CENTER,
+    # #     ),
+    # )
 
     page.add(
     ft.SafeArea(   # 👈 toto vyrieši horný okraj
@@ -190,7 +192,17 @@ def main(page: ft.Page):
             ),
         ),
     ),
-    footer,
+    # footer,           #
+    )
+
+    page.bottom_appbar = ft.Container(
+    padding=10,
+    content=ft.Text(
+        f"Power Calculator {VERSION} | ©2026 Igor Vitovský | github.com/igvisk",
+        size=10,
+        opacity=0.6,
+        text_align=ft.TextAlign.CENTER,
+        ),
     )
 
 
