@@ -18,8 +18,8 @@ def calculate_power(current, voltage, power_factor, phases):
         nominal_voltage = 400
         min_v, max_v = 360, 440
 
-    # else:                                               #redundant will be deleted
-    #     raise ValueError("Invalid number of phases")
+    else:                                               
+        raise ValueError("Invalid number of phases")
 
     # check range
     if not (min_v <= voltage <= max_v):
