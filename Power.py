@@ -199,22 +199,19 @@ def main(page: ft.Page):
         pf.value = f"{entered_pf:.2f}"
 
         # --- CALCULATION ---
-        try:
-            res = calculate_power(
-                current=entered_current,
-                voltage=entered_voltage,
-                power_factor=entered_pf,
-                phases=selected_phase,
+        res = calculate_power(
+            current= entered_current,
+            voltage= entered_voltage,
+            power_factor= entered_pf,
+            phases= selected_phase,
             )
 
-            p_text.value = f"{res['P']:.0f}"
-            s_text.value = f"{res['S']:.0f}"
-            q_text.value = f"{res['Q']:.0f}"
+        voltage.value = str(res["voltage"])         #berie z logic.py - res["voltage"] obsahuje uz validovanu hodnotu
+        # voltage.value = f"{res['voltage']:.0f}"       #zobraze len cele cislo pre voltage ale ak zadas desatinne vypocet to spravi, berie z logic.py - res["voltage"] obsahuje uz validovanu hodnotu 
 
-        except:                                 #zbytocne uz
-            p_text.value = "❌"
-            s_text.value = "❌"
-            q_text.value = "❌"
+        p_text.value = f"{res['P']:.0f}"
+        s_text.value = f"{res['S']:.0f}"
+        q_text.value = f"{res['Q']:.0f}"
 
         page.update()
 
