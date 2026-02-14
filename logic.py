@@ -8,18 +8,18 @@ def calculate_power(current, voltage, power_factor, phases):
 
     if phases == 1:
         nominal_voltage = 230
-        min_v, max_v = 1, 280
+        min_v, max_v = 1, 359                             #TBD for DC calculations 
 
     elif phases == 2:
         nominal_voltage = 400
-        min_v, max_v = 360, 430
+        min_v, max_v = 360, 440
 
     elif phases == 3:
         nominal_voltage = 400
-        min_v, max_v = 360, 430
+        min_v, max_v = 360, 440
 
-    else:
-        raise ValueError("Invalid number of phases")
+    # else:                                               #redundant will be deleted
+    #     raise ValueError("Invalid number of phases")
 
     # check range
     if not (min_v <= voltage <= max_v):
