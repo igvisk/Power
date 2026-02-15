@@ -284,7 +284,7 @@ def main(page: ft.Page):
     )
 
     page.bottom_appbar = ft.Container(
-        padding=20,
+        padding=65,
         content=ft.Text(
             f"Power Calculator {VERSION} | ©2026 Igor Vitovský | github.com/igvisk",
             size=10,
