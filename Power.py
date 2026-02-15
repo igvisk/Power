@@ -1,17 +1,18 @@
 import flet as ft
 from logic import calculate_power
 
-VERSION = "v1.3b"
+VERSION = "2.0"
 
 
 def main(page: ft.Page):
+
     # ===============================
     # ===== WINDOW ==================
     # ===============================
     page.title = f"Power Calculator {VERSION}"
     page.padding = 5
-    page.theme_mode = ft.ThemeMode.LIGHT
-    page.bgcolor = "#fffafa"
+    page.theme_mode = ft.ThemeMode.DARK
+    page.bgcolor = "#111111"
 
     # ===============================
     # ===== DEFAULT VALUES ==========
@@ -28,6 +29,9 @@ def main(page: ft.Page):
         dense=True,
         text_size=13,
         text_align=ft.TextAlign.CENTER,
+        bgcolor="#1c1c1c",
+        border_color="#2a2a2a",
+        color="#e5e5e5",
     )
 
     # ===============================
@@ -70,17 +74,8 @@ def main(page: ft.Page):
 
     def refresh_phase_buttons():
         for i, btn in enumerate(phase_buttons.controls, start=1):
-            btn.bgcolor = ft.Colors.BLUE_400 if i == selected_phase else ft.Colors.GREY_200
-            btn.content.color = ft.Colors.WHITE if i == selected_phase else ft.Colors.BLACK
-            btn.shadow = (
-                ft.BoxShadow(
-                    blur_radius=10,
-                    spread_radius=1,
-                    color=ft.Colors.BLACK12,
-                )
-                if i == selected_phase
-                else None
-            )
+            btn.bgcolor = "#facc15" if i == selected_phase else "#2a2a2a"
+            btn.content.color = "#000000" if i == selected_phase else "#e5e5e5"
             btn.scale = 1.05 if i == selected_phase else 1
 
     def set_phase_value(value):
@@ -106,7 +101,7 @@ def main(page: ft.Page):
             height=40,
             alignment=ft.Alignment.CENTER,
             border_radius=20,
-            bgcolor=ft.Colors.BLUE_400 if value == selected_phase else ft.Colors.GREY_200,
+            bgcolor="#facc15" if value == selected_phase else "#2a2a2a",
             on_click=lambda e: set_phase_value(value),
             animate_scale=150,
             ink=False,
@@ -127,36 +122,64 @@ def main(page: ft.Page):
     # ===============================
     # ===== RESULTS =================
     # ===============================
-    p_text = ft.Text(size=16, weight=ft.FontWeight.BOLD, text_align=ft.TextAlign.CENTER)
-    s_text = ft.Text(size=16, weight=ft.FontWeight.BOLD, text_align=ft.TextAlign.CENTER)
-    q_text = ft.Text(size=16, weight=ft.FontWeight.BOLD, text_align=ft.TextAlign.CENTER)
+
+    display_style = dict(
+        size=16,
+        weight=ft.FontWeight.BOLD,
+        text_align=ft.TextAlign.CENTER,
+        color="#facc15",
+        font_family="RobotoMono",
+        no_wrap=True,
+    )
+
+    p_text = ft.Text(**display_style)
+    s_text = ft.Text(**display_style)
+    q_text = ft.Text(**display_style)
 
     result_row = ft.Row(
-        width=300,
+        expand=True,
+        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
         controls=[
             ft.Column(
                 expand=True,
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                controls=[ft.Text("Active (W)", size=12, opacity=0.7), p_text],
+                controls=[
+                    ft.Text("Active (W)", size=12, color="#6b7280"),
+                    p_text,
+                ],
             ),
             ft.Column(
                 expand=True,
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                controls=[ft.Text("Apparent (VA)", size=12, opacity=0.7), s_text],
+                controls=[
+                    ft.Text("Apparent (VA)", size=12, color="#6b7280"),
+                    s_text,
+                ],
             ),
             ft.Column(
                 expand=True,
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                controls=[ft.Text("Reactive (VAr)", size=12, opacity=0.7), q_text],
+                controls=[
+                    ft.Text("Reactive (VAr)", size=12, color="#6b7280"),
+                    q_text,
+                ],
             ),
         ],
     )
 
+
+
     result_box = ft.Container(
-        width=300,
-        padding=6,
-        border=ft.Border.all(1, ft.Colors.GREY_400),
-        border_radius=8,
+        width=360,
+        padding=16,
+        bgcolor="#0a0a0a",
+        border_radius=12,
+        border=ft.Border.all(2, "#222222"),
+        shadow=ft.BoxShadow(
+            blur_radius=40,
+            spread_radius=3,
+            color="#facc15",
+        ),
         content=result_row,
     )
 
@@ -165,7 +188,6 @@ def main(page: ft.Page):
     # ===============================
     def on_calculate(e):
 
-        # --- CURRENT ---
         try:
             entered_current = float(current.value.replace(",", "."))
             if entered_current <= 0:
@@ -175,7 +197,6 @@ def main(page: ft.Page):
 
         current.value = str(entered_current)
 
-        # --- VOLTAGE ---
         try:
             entered_voltage = float(voltage.value.replace(",", "."))
             if entered_voltage <= 0:
@@ -188,7 +209,6 @@ def main(page: ft.Page):
 
         voltage.value = str(entered_voltage)
 
-        # --- POWER FACTOR ---
         try:
             entered_pf = float(pf.value.replace(",", "."))
             if entered_pf < 0.1 or entered_pf > 1:
@@ -198,16 +218,14 @@ def main(page: ft.Page):
 
         pf.value = f"{entered_pf:.2f}"
 
-        # --- CALCULATION ---
         res = calculate_power(
-            current= entered_current,
-            voltage= entered_voltage,
-            power_factor= entered_pf,
-            phases= selected_phase,
-            )
+            current=entered_current,
+            voltage=entered_voltage,
+            power_factor=entered_pf,
+            phases=selected_phase,
+        )
 
-        voltage.value = str(res["voltage"])         #berie z logic.py - res["voltage"] obsahuje uz validovanu hodnotu
-        # voltage.value = f"{res['voltage']:.0f}"       #zobraze len cele cislo pre voltage ale ak zadas desatinne vypocet to spravi, berie z logic.py - res["voltage"] obsahuje uz validovanu hodnotu 
+        voltage.value = str(res["voltage"])
 
         p_text.value = f"{res['P']:.0f}"
         s_text.value = f"{res['S']:.0f}"
@@ -215,9 +233,17 @@ def main(page: ft.Page):
 
         page.update()
 
-    calculate_btn = ft.Button(
+    calculate_btn = ft.ElevatedButton(
         "Calculate power",
         width=300,
+        elevation=6,
+        style=ft.ButtonStyle(
+            bgcolor={
+                ft.ControlState.DEFAULT: "#facc15",
+                ft.ControlState.HOVERED: "#ffe58a",
+            },
+            color="#000000",
+        ),
         on_click=on_calculate,
     )
 
@@ -231,14 +257,25 @@ def main(page: ft.Page):
                 alignment=ft.Alignment.CENTER,
                 content=ft.Column(
                     width=320,
-                    spacing=14,
+                    spacing=22,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     controls=[
-                        ft.Text("⚡ Power Calculator", size=26, weight=ft.FontWeight.BOLD),
+                        ft.Text(
+                            "⚡ Power Calculator",
+                            size=26,
+                            weight=ft.FontWeight.BOLD,
+                            color="#e5e5e5",
+                        ),
                         result_box,
+                        ft.Container(height=6),  # <-- medzera navyše
                         inputs_row,
-                        ft.Text("Number of phases", size=12, opacity=0.7),
+                        ft.Text(
+                            "Number of phases",
+                            size=12,
+                            color="#6b7280",
+                        ),
                         phase_buttons,
+                        ft.Container(height=0.1),  # <-- medzera navyše
                         calculate_btn,
                     ],
                 ),
@@ -247,11 +284,11 @@ def main(page: ft.Page):
     )
 
     page.bottom_appbar = ft.Container(
-        padding=10,
+        padding=20,
         content=ft.Text(
             f"Power Calculator {VERSION} | ©2026 Igor Vitovský | github.com/igvisk",
             size=10,
-            opacity=0.6,
+            color="#4b5563",
             text_align=ft.TextAlign.CENTER,
         ),
     )
