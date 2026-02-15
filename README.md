@@ -1,12 +1,10 @@
 ⚡ Power Calculator (Flet)
 
-![QR generator](Power_calc_flet.png)
-
-
-
 Modern electrical power calculator built with Python + Flet for fast and reliable calculations in single-phase and three-phase systems.
 
 📸 Preview
+
+![Power Calculator](Power_calc_flet.png)
 
 🚀 Features
 
