@@ -5,7 +5,7 @@ Modern electrical power calculator built with Python + Flet for fast and reliabl
 
 📸 Preview
 
-[![Power Calculator](Power_calc_flet.png)]
+[![Power Calculator](images/Power_calc_flet.png)]
 
 🚀 Features
 
