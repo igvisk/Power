@@ -1,10 +1,11 @@
 ⚡ Power Calculator (Flet)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 
 
 Modern electrical power calculator built with Python + Flet for fast and reliable calculations in single-phase and three-phase systems.
 
 📸 Preview
 
-![Power Calculator](Power_calc_flet.png)
+[![Power Calculator](Power_calc_flet.png)]
 
 🚀 Features
 
@@ -62,9 +63,9 @@ Results rounded for clean display
 
 🛠 Tech Stack
 
-Python 3.x
+Python 3.13
 
-Flet 0.80.x
+Flet 0.80.5 (1.0b)
 
 Flutter engine (via Flet build system)
 
