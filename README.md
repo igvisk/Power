@@ -5,29 +5,21 @@ Modern electrical power calculator built with Python + Flet for fast and reliabl
 
 📸 Preview
 
-[![Power Calculator](images/Power_calc_flet.png)]
+![Power Calculator](images/Power_calc_flet.png)
 
 🚀 Features
-
 ⚡ Active Power (P)
-
 ⚡ Apparent Power (S)
-
 ⚡ Reactive Power (Q)
 
 🔄 1-phase / 2-phase / 3-phase selection
+    ✅ Automatic voltage validation
+    ✅ Power factor validation
+    🌙 Modern dark UI
+    💻 Desktop build (Windows)
+    📱 Android APK build support
+    📐 Calculation Logic
 
-✅ Automatic voltage validation
-
-✅ Power factor validation
-
-🌙 Modern dark UI
-
-💻 Desktop build (Windows)
-
-📱 Android APK build support
-
-📐 Calculation Logic
 1-phase
 S = U × I
 P = S × cosφ
@@ -40,49 +32,30 @@ Q = S × sinφ
 
 
 Where:
-
 U = voltage (V)
-
 I = current (A)
-
 cosφ = power factor
-
 sinφ = √(1 - cos²φ)
 
 🧠 Input Validation
-
-Power factor range: 0.1 – 1
-
-Voltage range depends on selected phase
-
-Invalid values fallback to safe defaults
-
-Voltage auto-adjusts when switching phase mode
-
-Results rounded for clean display
+    Power factor range: 0.1 – 1
+    Voltage range depends on selected phase
+    Invalid values fallback to safe defaults
+    Voltage auto-adjusts when switching phase mode
+    Results rounded for clean display
 
 🛠 Tech Stack
-
 Python 3.13
-
 Flet 0.80.5 (1.0b)
-
 Flutter engine (via Flet build system)
 
 ▶️ Run Locally
-
 Install dependencies:
-
 pip install flet
-
-
 Run the app:
-
 python Power.py
 
-
 Or using Flet CLI:
-
 flet run Power.py
 
 📦 Build
@@ -93,11 +66,12 @@ Android APK
 flet build apk --module-name Power
 
 📊 Default Parameters
-Parameter	Default
-Current	16 A
-Voltage (1-phase)	230 V
-Voltage (3-phase)	400 V
-Power Factor	0.98
+    Parameter	Default
+    Current	16 A
+    Voltage (1-phase)	230 V
+    Voltage (2,3-phase)	400 V
+    Power Factor	0.98
+
 📁 Project Structure
 Power_Calculator/
 │
@@ -105,6 +79,8 @@ Power_Calculator/
 ├── logic.py        # Electrical calculation logic
 ├── images/
 │   └── Power_calc_flet.png
+├── assets/
+│   └── icon.png
 ├── README.md
 └── LICENSE
 
@@ -136,5 +112,5 @@ SOFTWARE.
 
 👨‍💻 Author
 
-Igor Vitovský
-GitHub: https://github.com/igvisk
+            Igor Vitovský
+            GitHub: https://github.com/igvisk
