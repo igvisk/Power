@@ -1,5 +1,4 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 
-
 ---
 
 # ⚡ Power Calculator (Flet)
@@ -15,9 +14,9 @@ Modern electrical power calculator built with Python + Flet for fast and reliabl
 ---
 
 ## 🚀 Features
-⚡ Active Power (P)
-⚡ Apparent Power (S)
-⚡ Reactive Power (Q)
+⚡ Active Power     (P)
+⚡ Apparent Power   (S)
+⚡ Reactive Power   (Q)
 
 🔄 1-phase / 2-phase / 3-phase selection
 
@@ -28,22 +27,22 @@ Modern electrical power calculator built with Python + Flet for fast and reliabl
     📱 Android APK build support
     📐 Calculation Logic
 
-1-phase
-S = U × I
-P = S × cosφ
-Q = S × sinφ
+    1-phase
+    S = U × I
+    P = S × cosφ
+    Q = S × sinφ
 
-3-phase
-S = √3 × U × I
-P = S × cosφ
-Q = S × sinφ
+    3-phase
+    S = √3 × U × I
+    P = S × cosφ
+    Q = S × sinφ
 
 
 Where:
-U = voltage (V)
-I = current (A)
-cosφ = power factor
-sinφ = √(1 - cos²φ)
+    U = voltage (V)
+    I = current (A)
+    cosφ = power factor
+    sinφ = √(1 - cos²φ)
 
 🧠 Input Validation
 Power factor range: 0.1 – 1
@@ -80,26 +79,26 @@ flet build apk --module-name Power
 ---
 
 ## 📊 Default Parameters
-    Parameter	Default
-    Current	16 A
+    Parameter	        Default
+    Current	            16 A
     Voltage (1-phase)	230 V
     Voltage (2,3-phase)	400 V
-    Power Factor	0.98
+    Power Factor	    0.98
 
 ---
 
 ## 📁 Project Structure
 
-Power_Calculator/
-│
-├── Power.py        # Main Flet UI application
-├── logic.py        # Electrical calculation logic
-├── images/
-│   └── Power_calc_flet.png
-├── assets/
-│   └── icon.png
-├── README.md
-└── LICENSE
+    Power_Calculator/
+    │
+    ├── Power.py        # Main Flet UI application
+    ├── logic.py        # Electrical calculation logic
+    ├── images/
+    │   └── Power_calc_flet.png
+    ├── assets/
+    │   └── icon.png
+    ├── README.md
+    └── LICENSE
 
 ---
 
