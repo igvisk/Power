@@ -1,13 +1,19 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 
 
+---
+
 # ⚡ Power Calculator (Flet)
 
 Modern electrical power calculator built with Python + Flet for fast and reliable calculations in single-phase and three-phase systems.
+
 ---
+
 ## 📸 Preview
 
 ![Power Calculator](images/Power_calc_flet.png)
+
 ---
+
 ## 🚀 Features
 ⚡ Active Power (P)
 ⚡ Apparent Power (S)
@@ -45,11 +51,14 @@ Voltage range depends on selected phase
 Invalid values fallback to safe defaults
 Voltage auto-adjusts when switching phase mode
 Results rounded for clean display
+
 ---
+
 ## 🛠 Tech Stack
 Python 3.13
 Flet 0.80.5 (1.0b)
 Flutter engine (via Flet build system)
+
 
 ▶️ Run Locally
 Install dependencies:
@@ -60,21 +69,27 @@ python Power.py
 Or using Flet CLI:
 flet run Power.py
 
+
 📦 Build
 Windows
 flet build windows
 
 Android APK
 flet build apk --module-name Power
+
 ---
+
 ## 📊 Default Parameters
     Parameter	Default
     Current	16 A
     Voltage (1-phase)	230 V
     Voltage (2,3-phase)	400 V
     Power Factor	0.98
+
 ---
+
 ## 📁 Project Structure
+
 Power_Calculator/
 │
 ├── Power.py        # Main Flet UI application
@@ -85,7 +100,9 @@ Power_Calculator/
 │   └── icon.png
 ├── README.md
 └── LICENSE
+
 ---
+
 ## 📄 License
 
 This project is licensed under the MIT License.
@@ -111,7 +128,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
 ---
+
 ## 👨‍💻 Author
-Igor Vitovský
-GitHub: https://github.com/igvisk
+    Igor Vitovský
+
+    GitHub: https://github.com/igvisk
