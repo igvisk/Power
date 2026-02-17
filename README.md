@@ -39,10 +39,13 @@ Modern electrical power calculator built with Python + Flet for fast and reliabl
 
 
 Where:
-    U = voltage (V)
-    I = current (A)
-    cosφ = power factor
-    sinφ = √(1 - cos²φ)
+    U = voltage (V);
+
+    I = current (A);
+
+    cosφ = power factor;
+
+    sinφ = √(1 - cos²φ);
 
 🧠 Input Validation
 Power factor range: 0.1 – 1
