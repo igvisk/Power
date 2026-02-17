@@ -40,12 +40,13 @@ Modern electrical power calculator built with Python + Flet for fast and reliabl
 
 Where:
 
-    U = voltage (V);
-    I = current (A);
-    cosφ = power factor;
-    sinφ = √(1 - cos²φ);
+    U = voltage (V)
+    I = current (A)
+    cosφ = power factor
+    sinφ = √(1 - cos²φ)
 
 🧠 Input Validation
+
 Power factor range: 0.1 – 1
 Voltage range depends on selected phase
 Invalid values fallback to safe defaults
@@ -55,12 +56,14 @@ Results rounded for clean display
 ---
 
 ## 🛠 Tech Stack
+
 Python 3.13
 Flet 0.80.5 (1.0b)
 Flutter engine (via Flet build system)
 
 
 ▶️ Run Locally
+
 Install dependencies:
 pip install flet
 Run the app:
@@ -71,6 +74,7 @@ flet run Power.py
 
 
 📦 Build
+
 Windows
 flet build windows
 
@@ -80,6 +84,7 @@ flet build apk --module-name Power
 ---
 
 ## 📊 Default Parameters
+
     Parameter	        Default
     Current	            16 A
     Voltage (1-phase)	230 V
